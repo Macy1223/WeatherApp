@@ -1,2 +1,2 @@
 def kel_to_cel(kelvins):
-    return kelvins - 273.15
+    return round(kelvins - 273.15, 2)
