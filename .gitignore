@@ -1,2 +1,4 @@
 .idea
 venv/
+__pycashe__/
+api_key.txt
