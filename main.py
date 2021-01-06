@@ -1,16 +1,17 @@
 from readapi_key import readapi_key
-import requests
-from Kalkulator import kel_to_cel
-api_key = readapi_key("api_key.txt")
+from api_connection import get_response
+from Kalkulator import Conversion
 
-response = requests.get(f"http://api.openweathermap.org/data/2.5/weather?q=warsaw&appid={api_key.strip()}")
 
-temp = response.json()["main"]["temp"]
-feel_temperature = response.json()["main"]["feels_like"]
+def main():
+    api_key = readapi_key("api_key.txt")
+    response = get_response(api_key)
+    convertion = Conversion(response)
+    print(convertion.temp)
+    convertion.kel_to_cel()
+    print(convertion.temp)
 
-weather = response.json()["weather"][0]["main"]
-name = response.json()["name"]
-print(kel_to_cel(temp))
-print(kel_to_cel(feel_temperature))
-print(weather)
-print(name)
+
+if __name__ == '__main__':
+    main()
+

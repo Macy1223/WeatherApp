@@ -1,2 +1,6 @@
-def kel_to_cel(kelvins):
-    return round(kelvins - 273.15, 2)
+class Conversion:
+    def __init__(self, data):
+        self.temp = data["main"]["temp"]
+
+    def kel_to_cel(self):
+        self.temp = round(self.temp - 273.15, 2)
